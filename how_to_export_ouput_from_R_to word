@@ -1,0 +1,3 @@
+• using capture.output(summary(a),file="filename.doc")    
+(reference:http://rstatistics.tumblr.com/post/417394222/export-anova-table)
+
