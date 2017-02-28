@@ -1,3 +1,13 @@
 • using capture.output(summary(a),file="filename.doc")    
 (reference:http://rstatistics.tumblr.com/post/417394222/export-anova-table)
 
+
+•Print table to word
+data(iris)
+mod <- lm(Sepal.Length ~ Species, data = iris)
+regr_tab <- data.frame(summary(mod)$coefficients)
+colnames(regr_tab) <- colnames(summary(mod)$coefficients)
+regr_tab[ ,4] <- ifelse(regr_tab[ ,4] < .001, "< 0.001", 
+                        ifelse(regr_tab[ ,4] < .01, "< 0.01", 
+                        round(regr_tab[ ,4], 3)))
+
