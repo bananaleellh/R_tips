@@ -10,4 +10,8 @@ colnames(regr_tab) <- colnames(summary(mod)$coefficients)
 regr_tab[ ,4] <- ifelse(regr_tab[ ,4] < .001, "< 0.001", 
                         ifelse(regr_tab[ ,4] < .01, "< 0.01", 
                         round(regr_tab[ ,4], 3)))
+ # print table to doc in word-default format:
+wdTable(format(regr_tab), autoformat = 1) 
+wdSave("Regression.doc")     # save file 
+wdQuit()
 
